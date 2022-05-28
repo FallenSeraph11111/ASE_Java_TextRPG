@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "type": "EQUIPMENT",
+      "id": 1,
+      "name": "Iron Sword",
+      "value": "2",
+      "actions": [
+        "Slash"
+      ],
+      "equipmentSlot": "WEAPON",
+      "levelRequirement": 1,
+      "baseDamage": 1,
+      "damageScaling": 0,
+      "damageType": "SLASHING",
+      "protection": 0
+    },
+    {
+      "name": "Coin",
+      "type": "VALUABLE",
+      "value": 10,
+      "stackSize": 999
+    }
+  ]
+}
