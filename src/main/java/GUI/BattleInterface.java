@@ -1,8 +1,6 @@
 package GUI;
 
 import Entitys.Entity;
-import Entitys.NPC;
-import Entitys.Player;
 import items.Action;
 
 import java.util.List;
@@ -16,11 +14,11 @@ public class BattleInterface {
 	}
 
 	public Action chooseAction(List<Action> actions){
-		gui.printText("What Action do you want to take");
-		gui.printText("index : Action  :  aoe  :  baseDamage");
+		gui.printTextToOutput("What Action do you want to take");
+		gui.printTextToOutput("index : Action  :  aoe  :  baseDamage");
 		int i=0;
 		for (Action action : actions) {
-			gui.printText(i + " : " + action.name + " : "+action.aoe + " : "+ action.baseDamage);
+			gui.printTextToOutput(i + " : " + action.name + " : "+action.aoe + " : "+ action.baseDamage);
 			i++;
 		}
 		while (true) {
@@ -28,7 +26,7 @@ public class BattleInterface {
 				String input = gui.waitForInput();
 				int selected = Integer.parseInt(battleInputParser(input));
 				if (selected < 0 && selected >= actions.size()) {
-					gui.printText("Please enter one of the listed values");
+					gui.printTextToOutput("Please enter one of the listed values");
 					continue;
 				}
 				Action action = actions.get(selected);
@@ -41,15 +39,15 @@ public class BattleInterface {
     public void battleLog(String lastAction){
 		log.append(lastAction);
 		log.append("\n\r");
-		gui.setBattleLog(log.toString());
+		gui.addToBattleLog(log.toString());
     }
 
     public Entity chooseTarget(List<Entity> enemies) {
-		gui.printText("Who do you want to Target");
-	    gui.printText("index : Enemy");
+		gui.printTextToOutput("Who do you want to Target");
+	    gui.printTextToOutput("index : Enemy");
 		int i=0;
 	    for (Entity enemy : enemies) {
-		    gui.printText(i + " : " + enemy.name);
+		    gui.printTextToOutput(i + " : " + enemy.name);
 		    i++;
 	    }
 	    while (true) {
@@ -57,7 +55,7 @@ public class BattleInterface {
 			    String input = gui.waitForInput();
 			    int selected = Integer.parseInt(battleInputParser(input));
 			    if (selected < 0 && selected >= enemies.size()) {
-				    gui.printText("Please enter one of the listed values");
+				    gui.printTextToOutput("Please enter one of the listed values");
 				    continue;
 			    }
 			    Entity enemy = enemies.get(selected);

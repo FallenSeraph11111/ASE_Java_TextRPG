@@ -44,19 +44,19 @@ class Main {
 		//returns false if new game true if old game
 		gui.main();
 		gui.clearOutput();
-		gui.printText("Do you Want to start a new Game?");
+		gui.printTextToOutput("Do you Want to start a new Game?");
 		gui.setInputLabel("y, if you want to; n, if not");
 		while (true) {
 			String answer = gui.waitForInput();
 			answer = inputParser(answer);
 			if (answer.equals("y")) return true;
 			if (answer.equals("n")) return false;
-			gui.printText("Please enter either enter 'y' or 'n' and press submit. ");
+			gui.printTextToOutput("Please enter either enter 'y' or 'n' and press submit. ");
 		}
 	}
 
 	private void startSaveGame() throws InterruptedException {
-		gui.printText("This Option is currently unavailable. Sorry but due to time constraints it is sadly not implementet");
+		gui.printTextToOutput("This Option is currently unavailable. Sorry but due to time constraints it is sadly not implementet");
 		Thread.sleep(4000);
 		startGame();
 	}
@@ -65,11 +65,11 @@ class Main {
 		gui.clearOutput();
 		List<Player> presets = ini.loadPlayerPresets();
 		int i = 0;
-		gui.printText("Please select Player Preset you want to use");
-		gui.printText("index : preset name");
+		gui.printTextToOutput("Please select Player Preset you want to use");
+		gui.printTextToOutput("index : preset name");
 		gui.setInputLabel("");
 		for (Player p : presets) {
-			gui.printText(i + " : " + p.name);
+			gui.printTextToOutput(i + " : " + p.name);
 			i++;
 		}
 		while (true) {
@@ -77,7 +77,7 @@ class Main {
 				String input = gui.waitForInput();
 				int selected = Integer.parseInt(inputParser(input));
 				if (selected < 0 && selected >= presets.size()) {
-					gui.printText("Please enter one of the listed values");
+					gui.printTextToOutput("Please enter one of the listed values");
 					continue;
 				}
 				Player localPlayer = presets.get(selected);
@@ -91,9 +91,9 @@ class Main {
 
 	private void startGame() {
 		player = createPlayer();
-		gui.health(player.hp.getHp_max(),player.hp.getHp());
-		gui.armour(player.equipment.getProtection());
-		gui.damage(player.equipment.getBase_damage());
+		gui.setHealthStatusBar(player.hp.getHp_max(),player.hp.getHp());
+		gui.setArmourStatusBar(player.equipment.getProtection());
+		gui.setBaseDamageStatusBar(player.equipment.getBase_damage());
 	}
 
 	private void gameLoop() throws InterruptedException {
@@ -110,11 +110,11 @@ class Main {
 		Map<String, RoomNode> choices = map.GetAdjacentNodes();
 		while (true) {
 			gui.clearOutput();
-			gui.printText("Where do you want to go?");
-			gui.printText("Input  :   Room it leads to : have you beaten the room");
+			gui.printTextToOutput("Where do you want to go?");
+			gui.printTextToOutput("Input  :   Room it leads to : have you beaten the room");
 			StringBuilder build = new StringBuilder("Input Choices: i -> Inventory, l-> Level Screen");
 			for (String choice : choices.keySet()) {
-				gui.printText(choice + " : " + choices.get(choice).label + " : " + choices.get(choice).beaten);
+				gui.printTextToOutput(choice + " : " + choices.get(choice).label + " : " + choices.get(choice).beaten);
 				build.append(", " + choice);
 			}
 			gui.setInputLabel(build.toString());
@@ -125,7 +125,7 @@ class Main {
 				gui.setInputLabel("");
 				return nextRoom;
 			}
-			gui.printText("Please enter one of the listed room choices");
+			gui.printTextToOutput("Please enter one of the listed room choices");
 		}
 	}
 
@@ -157,7 +157,7 @@ class Main {
 			return true;
 		}
 		gui.clearOutput();
-		gui.printText(room.text);
+		gui.printTextToOutput(room.text);
 		Thread.sleep(2000);
 		Encounter encounter = em.getEncounter(room.encounterID);
 		BattleController bc = null;
@@ -183,14 +183,14 @@ class Main {
 	}
 
 	private boolean handleChestRoom(Encounter encounter) {
-		gui.printText("Do you want to Open the Chest?");
+		gui.printTextToOutput("Do you want to Open the Chest?");
 		gui.setInputLabel("Please enter either enter 'y' or 'n' and press submit.");
 		while (true){
 			String answer = gui.waitForInput();
 			answer = inputParser(answer);
 			if (answer.equals("y")){
 				player.inventory.addItem(itemManager.getItem(encounter.loot));
-				gui.printText("You found "+encounter.loot+"!");
+				gui.printTextToOutput("You found "+encounter.loot+"!");
 				gui.setInputLabel("");
 				return true;
 			}
@@ -198,7 +198,7 @@ class Main {
 				return false;
 			}
 			else{
-				gui.printText("please enter either one of those Options");
+				gui.printTextToOutput("please enter either one of those Options");
 			}
 
 		}

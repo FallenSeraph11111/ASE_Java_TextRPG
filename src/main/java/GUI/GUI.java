@@ -33,21 +33,21 @@ public class GUI extends JFrame implements IO {
 
 
 		//creating the text output area
-		GridBagConstraints output = createBasicConstraints(0,0);
+		GridBagConstraints output = createBasicGridBagConstraints(0,0);
 		textOut=createOutputTextArea();
 		JScrollPane outputAreaScrollPane=createJScrollPane("Game Text",textOut);
 		//creating input area
-		GridBagConstraints inputConstrain = createBasicConstraints(0,1);
-		JPanel textInPane= createInputArea();
+		GridBagConstraints inputConstrain = createBasicGridBagConstraints(0,1);
+		JPanel textInPane= createInputPanel();
 		inputConstrain.gridx = 0;
 		inputConstrain.gridy = 1;
 		//Battle log
-		GridBagConstraints BattleLogStatusConstrains = createBasicConstraints(1,0);
+		GridBagConstraints BattleLogStatusConstrains = createBasicGridBagConstraints(1,0);
 		battleLog=createOutputTextArea();
 		JScrollPane battleLogPanel=createJScrollPane("Battle Log",battleLog);
 		//status area Player
-		GridBagConstraints playerStatusConstrains = createBasicConstraints(1,1);
-		JPanel playerStatusPanel=createStatus();
+		GridBagConstraints playerStatusConstrains = createBasicGridBagConstraints(1,1);
+		JPanel playerStatusPanel= createStatusPanel();
 		//playerStatusPanel.setPreferredSize(new Dimension(400, 500));
 		pane.add(outputAreaScrollPane, output);
 		pane.add(textInPane, inputConstrain);
@@ -59,8 +59,8 @@ public class GUI extends JFrame implements IO {
 		frame.pack();
 		frame.setVisible(true);
 	}
-	private JPanel createInputArea(){
-		GridBagConstraints inputConstrain = createBasicConstraints(0,1);
+	private JPanel createInputPanel(){
+		GridBagConstraints inputConstrain = createBasicGridBagConstraints(0,1);
 		textIn.setLineWrap(true);
 		textIn.setWrapStyleWord(true);
 		textIn.setFont(new Font("Serif", Font.PLAIN, 15));
@@ -83,7 +83,7 @@ public class GUI extends JFrame implements IO {
 						BorderFactory.createEmptyBorder(5, 5, 5, 5)));
 		return textInPane;
 	}
-	private JPanel createStatus(){
+	private JPanel createStatusPanel(){
 		JPanel playerStatusPanel=new JPanel(new GridLayout(3,2));
 		JLabel hptextFieldLabel= new JLabel("HP Max / HP Cur : ");
 		JTextField hp=new JTextField(10);
@@ -112,7 +112,7 @@ public class GUI extends JFrame implements IO {
 		return playerStatusPanel;
 	}
 
-	private GridBagConstraints createBasicConstraints(int Gridx,int Gridy){
+	private GridBagConstraints createBasicGridBagConstraints(int Gridx, int Gridy){
 		GridBagConstraints output=new GridBagConstraints();
 		output.weightx = 0.75;
 		output.weighty = 0.75;
@@ -153,17 +153,16 @@ public class GUI extends JFrame implements IO {
 
 	}
 
-	public void health(double hp_max,double hp_cur){
+	public void setHealthStatusBar(double hp_max, double hp_cur){
 		this.playerState[0].setText(hp_max+ " / "+hp_cur);
 	}
-	public void armour(double armour){
+	public void setArmourStatusBar(double armour){
 		this.playerState[1].setText(""+armour);
 	}
-	public void damage(double damage){
+	public void setBaseDamageStatusBar(double damage){
 		this.playerState[2].setText(""+damage);
 	}
-	@Override
-	public void printText(String outputText) {
+	public void printTextToOutput(String outputText) {
 		textOut.append("\n\r");
 		textOut.append( outputText);
 	}
@@ -197,22 +196,13 @@ public class GUI extends JFrame implements IO {
 			return null;
 		}
 	}
-	public void setBattleLog(String s){
+	public void addToBattleLog(String s){
 		this.battleLog.setText(s);
-	}
-	@Override
-	public void changeHP(double hp_cur, double hp_max) {
-
-	}
-
-	@Override
-	public void changeArmour(double armour) {
-
 	}
 
 	@Override
 	public void changeStats(int lvl, int stSTR, int stDEX, int stCON, int stINT, int stWIS, int stCHA) {
-
+		//todo display these somewhere????
 	}
 	class SubmitAction extends AbstractAction{
 		public SubmitAction(String name){

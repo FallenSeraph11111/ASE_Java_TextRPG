@@ -4,11 +4,9 @@ import Entitys.*;
 import GUI.BattleInterface;
 import GUI.GUI;
 import items.Action;
-import items.DamageType;
 import items.EquipmentItem;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class BattleController {
@@ -50,9 +48,9 @@ public class BattleController {
 	}
 
 	private void battleRound(Team currentTeam) {
-		gui.health(player.hp.getHp_max(),player.hp.getHp());
-		gui.armour(player.equipment.getProtection());
-		gui.damage(player.equipment.getBase_damage());
+		gui.setHealthStatusBar(player.hp.getHp_max(),player.hp.getHp());
+		gui.setArmourStatusBar(player.equipment.getProtection());
+		gui.setBaseDamageStatusBar(player.equipment.getBase_damage());
 		List<Entity> currentTeamEntities = getTeam(currentTeam);
 		List<Entity> enemyTeam = getEnemies(currentTeam);
 		for (Entity entity : currentTeamEntities) {
@@ -131,7 +129,7 @@ public class BattleController {
 		healamount += choosenAction.damageScaling * (player.stats.getStat(choosenAction.damageType.corrospondingStat()) - 10);
 		choosenTarget.hp.heal(healamount);
 		String text=player.name + " has healed "+choosenTarget.name+ " for "+healamount+" health";
-		gui.printText(text);
+		gui.printTextToOutput(text);
 		BI.battleLog(text);
 	}
 
@@ -139,14 +137,14 @@ public class BattleController {
 		final double damage = DamageCalculation.calculateDamage(choosenAction, choosenTarget, player,equipItem);
 		choosenTarget.hp.damage(damage);
 		String text=player.name +" attacked "+choosenTarget.name+" using the action "+choosenAction.name+" and did "+damage+ " Damage";
-		gui.printText(text);
+		gui.printTextToOutput(text);
 		BI.battleLog(text);
 	}
 
 	private void defendAction(Action choosenAction, Entity player, EquipmentItem equipment) {
 		player.blocking = true;
 		String text=player.name+ " is defending";
-		gui.printText(text);
+		gui.printTextToOutput(text);
 		BI.battleLog(text);
 	}
 
@@ -169,7 +167,7 @@ public class BattleController {
 			builder.append(ent.name + ": "+ent.hp.getHp());
 			builder.append("\n\r");
 		}
-		gui.printText("Enemies Health:\n\r"+builder.toString());
+		gui.printTextToOutput("Enemies Health:\n\r"+builder.toString());
 	}
 
 	private Team startingTeam() {
