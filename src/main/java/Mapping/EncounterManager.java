@@ -1,6 +1,4 @@
-package Battle;
-
-import items.Action;
+package Mapping;
 
 import java.util.ArrayList;
 import java.util.HashMap;

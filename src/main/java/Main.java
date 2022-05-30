@@ -1,6 +1,6 @@
 import Battle.BattleController;
-import Battle.Encounter;
-import Battle.EncounterManager;
+import Mapping.Encounter;
+import Mapping.EncounterManager;
 import Entitys.NPCManager;
 import Entitys.Player;
 import GUI.GUI;

@@ -1,4 +1,4 @@
-package Battle;
+package Mapping;
 
 import Entitys.NPC;
 import Mapping.EncounterType;

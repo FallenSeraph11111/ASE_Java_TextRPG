@@ -1,7 +1,7 @@
 package JSON;
 
-import Battle.Encounter;
-import Battle.EncounterManager;
+import Mapping.Encounter;
+import Mapping.EncounterManager;
 import Entitys.*;
 import Mapping.EncounterType;
 import Mapping.GameMap;
