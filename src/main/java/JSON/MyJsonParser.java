@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 
 public class MyJsonParser {
 	public JSONObject getJsonFromFile(String fileName) {
-
+		System.out.println(fileName);
 		try {
 			Class cls = getClass();
 			ClassLoader cLoader = cls.getClassLoader();

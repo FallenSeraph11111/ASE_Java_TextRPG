@@ -9,10 +9,13 @@ public class ActionManager {
     private ArrayList<Action> actions;
     private Map<String,Integer> nameIndexMap =new HashMap<>();
     private Integer currentIndex=0;
+	public ActionManager(){
+		actions=new ArrayList<>();
+	}
     public void addAction( Action newAction ){
-        Action action = new Action("","","",false,1.0d,1.0d);
+        //Action action = new Action("","","",false,1.0d,1.0d);
         actions.add(currentIndex,newAction);
-        nameIndexMap.put(action.name,currentIndex);
+        nameIndexMap.put(newAction.name,currentIndex);
         currentIndex++;
     }
     public Action getAction(String actionName){

@@ -26,5 +26,10 @@ public class Stats {
 			default -> 0;
 		};
 	}
+	public Stats clone(){
+		Stats clone=new Stats(level,statStr,statDex,statCon,statInt,statWis,statCha);
+		return clone;
+
+	}
 
 }

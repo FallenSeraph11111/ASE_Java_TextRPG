@@ -6,5 +6,5 @@ public enum EncounterType {
 	PATH,
 	NPC,
 	SWITCH,
-	BOSS
+	BOSS;
 }

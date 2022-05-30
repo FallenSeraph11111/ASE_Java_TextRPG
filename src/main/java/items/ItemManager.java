@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ItemManager {
-	private ArrayList<EquipmentItem> equipableItems;
-	private ArrayList<Item> items;
+	private ArrayList<EquipmentItem> equipableItems=new ArrayList<>();
+	private ArrayList<Item> items=new ArrayList<>();
 	private int itemIndex=0;
 	private int equipIndex=0;
 	private Map<String,Integer> itemNameIndexMap =new HashMap<>();
@@ -14,21 +14,21 @@ public class ItemManager {
 	private Map<String,ItemType> nameTypeIndex =new HashMap<>();
 
 	public Item getItem(String name){
-		ItemType type=getItemType(name);
+		ItemType type=getItemType(name.toLowerCase());
 		if(type==ItemType.EQUIPMENT){
-			return getEquipment(name);
+			return getEquipment(name.toLowerCase());
 		}
-		int index=itemNameIndexMap.get(name);
+		int index=itemNameIndexMap.get(name.toLowerCase());
 		Item item=items.get(index);
 		return item;
 	}
 	public EquipmentItem getEquipment(String name){
-		int index=equipNameIndexMap.get(name);
+		int index=equipNameIndexMap.get(name.toLowerCase());
 		EquipmentItem item=equipableItems.get(index);
 		return item;
 	}
 	public ItemType getItemType(String name){
-		ItemType type=nameTypeIndex.get(name);
+		ItemType type=nameTypeIndex.get(name.toLowerCase());
 		return type;
 	}
 
@@ -38,16 +38,16 @@ public class ItemManager {
 			return;
 		}
 		items.add(itemIndex,item);
-		itemNameIndexMap.put(item.name,itemIndex);
+		itemNameIndexMap.put(item.name.toLowerCase(),itemIndex);
 		itemIndex++;
-		nameTypeIndex.put(item.name,item.type);
+		nameTypeIndex.put(item.name.toLowerCase(),item.type);
 		return;
 	}
 	private void addEquipment(EquipmentItem item){
 		equipableItems.add(equipIndex,item);
-		equipNameIndexMap.put(item.name,equipIndex);
+		equipNameIndexMap.put(item.name.toLowerCase(),equipIndex);
 		equipIndex++;
-		nameTypeIndex.put(item.name,item.type);
+		nameTypeIndex.put(item.name.toLowerCase(),item.type);
 		return;
 	}
 }

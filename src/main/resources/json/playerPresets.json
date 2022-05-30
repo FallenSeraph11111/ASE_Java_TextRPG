@@ -1,0 +1,26 @@
+{
+  "presets": [
+    {
+      "hp": {
+        "hp_base": 10.0
+      },
+      "stats": {
+        "lvl": 8,
+        "str": 10,
+        "dex": 10,
+        "con": 10,
+        "int": 10,
+        "wis": 10,
+        "cha": 10
+      },
+      "label": "Balanced",
+      "equipment":[
+        "Iron Sword",
+        "Iron Helmet"
+      ],
+      "inventory": {
+        "coin": 10
+      }
+    }
+  ]
+}

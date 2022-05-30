@@ -1,14 +1,17 @@
 {
-  "encounters": {
-    "0": {
+  "encounters": [
+     {
+      "EncounterID": "0",
       "EncounterType": "PATH"
     },
-    "1": {
+    {
+      "EncounterID": "1",
       "EncounterType": "CHEST",
       "loot": "Iron Sword"
     },
-    "2": {
+    {
       "EncounterType": "ENEMY",
+      "EncounterID": "2",
       "enemies": [
         {
           "id": 1,
@@ -16,7 +19,8 @@
         }
       ]
     },
-    "3": {
+    {
+      "EncounterID": "3",
       "EncounterType": "ENEMY",
       "enemies": [
         {
@@ -33,7 +37,7 @@
         }
       ]
     }
-  },
+  ],
   "rooms": [
     {
       "label": "11F0",
@@ -47,7 +51,8 @@
       "EncounterType": "PATH",
       "encounterID": "0",
       "layer": 0,
-      "roomID": "00F0"
+      "roomID": "00F0",
+      "text": "You Wake up in a Strange room with a slightly ajar door. Do you want to enter the next Room?"
     },
     {
       "label": "10F0",
@@ -82,7 +87,8 @@
       "EncounterType": "CHEST",
       "encounterID": "1",
       "layer": 0,
-      "roomID": "22F0"
+      "roomID": "22F0",
+      "text": "The moment you enter the room you notice a strange Chest. Maybe it contains something helpful."
     },
     {
       "label": "23F0",
@@ -103,7 +109,8 @@
       "EncounterType": "PATH",
       "encounterID": "0",
       "layer": 0,
-      "roomID": "14F0"
+      "roomID": "14F0",
+      "text": "This Room has different feature than the ones you were in before. There is a staircase that leads down into a basement."
     },
     {
       "label": "14F-1",
@@ -131,7 +138,8 @@
       "EncounterType": "BOSS",
       "encounterID": "3",
       "layer": 1,
-      "roomID": "13F1"
+      "roomID": "13F1",
+      "text": "This Room is different than the rest, the tension in the air is nearly touchable. You prepare yourself to face the final fight. "
     }
   ],
   "edges": [

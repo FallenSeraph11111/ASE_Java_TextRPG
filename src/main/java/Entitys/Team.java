@@ -9,6 +9,14 @@ public enum Team {
         this.ID=ID;
     }
     public static Team nextTeam(Team currentTeam){
-        return Team.values()[Math.floorMod(currentTeam.ID+1,Team.values().length)];
+	    Team nextTeam = switch (currentTeam){
+		    case PLAYER -> Team.ENEMY;
+		    case ENEMY -> Team.ALLY;
+		    case ALLY -> Team.PLAYER;
+	    };
+
+		//Team nextTeam=Team.values()[currentTeam.ID+1%(Team.values().length)]; //this dosn't work i don't get why
+	    System.out.println(nextTeam);
+        return nextTeam;
     }
 }

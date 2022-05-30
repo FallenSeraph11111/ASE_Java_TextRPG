@@ -19,7 +19,8 @@ public class Health {
     public double getHp() {
         return hp_cur;
     }
-
+	public double getHp_max(){return hp_max;}
+	public double getHp_base(){return hp_base;}
     public void damage(double damageAmount) {
 
         this.hp_cur -= damageAmount;
@@ -29,6 +30,7 @@ public class Health {
 			con=1;
 		}
 		this.hp_max=hp_base+ hp_increase_Rate*con;
+		this.hp_cur=this.hp_max;
 	}
     public void heal(double healAmount) {
 

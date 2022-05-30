@@ -1,56 +1,26 @@
 package Mapping;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
-class RoomNode {
-	public final String label;
-	public final EncounterType type;
-	public final String encounterID;
-	public final int layer;
-	public boolean beaten=false;
-
-	RoomNode(String label, EncounterType type, String encounterID, int layer) {
-		this.label = label;
-		this.encounterID = encounterID;
-		this.type=type;
-		this.layer=layer;
-	}
-	RoomNode(String label, EncounterType type, String encounterID, int layer, boolean beaten) {
-		this.label = label;
-		this.encounterID = encounterID;
-		this.type=type;
-		this.layer=layer;
-		this.beaten=beaten;
-	}
-	public void beatenRoom(){
-		beaten=true;
-	}
-
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
-		RoomNode roomNode = (RoomNode) o;
-		return encounterID == roomNode.encounterID && layer == roomNode.layer && label.equals(roomNode.label) && type == roomNode.type;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(label);
-	}
-}
 public class MapGraph {
 	private Map<RoomNode, List<RoomNode>> adjVertices;
 	private Map<String, RoomNode> rooms;
+
+	public MapGraph() {
+		this.adjVertices = new HashMap<>();
+		this.rooms = new HashMap<>();
+	}
 
 	// standard constructor, getters, setters
 	public void addRoomNode(String label, String encounterID, EncounterType type,int layer) {
 		RoomNode node = new RoomNode(label, type, encounterID,layer);
 		adjVertices.putIfAbsent(node, new ArrayList<>());
-		rooms.putIfAbsent("label", node);
+		rooms.putIfAbsent(label, node);
+	}
+	public void addRoomNode(String label, String encounterID, EncounterType type,int layer,String text) {
+		RoomNode node = new RoomNode(label, type, encounterID,layer,text);
+		adjVertices.putIfAbsent(node, new ArrayList<>());
+		rooms.putIfAbsent(label, node);
 	}
 
 	public void removeRoomNode(String label, String encounterID, EncounterType type,int layer) {

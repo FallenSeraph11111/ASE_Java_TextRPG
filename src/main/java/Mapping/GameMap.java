@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class GameMap {
 	public MapGraph graph;
-	RoomNode currentNode;
+	public RoomNode currentNode;
 	public GameMap(MapGraph graph, RoomNode currentNode) {
 		this.graph = graph;
 		this.currentNode = currentNode;

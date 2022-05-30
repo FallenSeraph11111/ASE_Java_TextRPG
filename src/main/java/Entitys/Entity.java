@@ -23,4 +23,5 @@ public abstract class Entity {
 	public double resistanceTo(DamageType damageType) {
 		return 100.0;
 	}
+
 }

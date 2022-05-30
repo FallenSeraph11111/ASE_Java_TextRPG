@@ -10,15 +10,11 @@ public class DamageCalculation {
 		double damage = 0.0d;
 		double resistance;
 		resistance = choosenTarget.resistanceTo(chosenAction.damageType);
-		damage += chosenAction.baseDamage + chosenAction.damageScaling * player.stats.getStat(chosenAction.damageType.corrospondingStat());
-		if (equipment instanceof EquipmentItem ? true : false) {
-			EquipmentItem weapon = (EquipmentItem) equipment;
-			damage += weapon.baseDamage + weapon.damageScaling * player.stats.getStat(weapon.damageType.corrospondingStat());
-			resistance = choosenTarget.resistanceTo(weapon.damageType);
+		damage += chosenAction.baseDamage + chosenAction.damageScaling * (player.stats.getStat(chosenAction.damageType.corrospondingStat())-10);
 
-		} else {
+		damage += player.equipment.getBase_damage(); // equipment.damageScaling * player.stats.getStat(equipment.damageType.corrospondingStat());
+		//damage *= resistance/100;
 
-		}
 		if (choosenTarget.blocking) {
 			damage /= 0.50;
 		}

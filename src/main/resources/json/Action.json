@@ -18,7 +18,8 @@
     },
     {
       "name": "Defend",
-      "actionType": "DEFEND"
+      "actionType": "DEFEND",
+      "aoe": false
     }
   ]
 }

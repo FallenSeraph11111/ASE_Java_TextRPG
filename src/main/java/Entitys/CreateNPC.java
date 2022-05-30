@@ -41,6 +41,9 @@ public class CreateNPC {
 		if (this.stats==null){
 			this.stats=new Stats(this.level,this.statStr,statDex,statCon,statInt,statWis,statCha);
 		}
+		if (this.equipment == null){
+			this.equipment=new Equipment();
+		}
         return new NPC(this.name,new Health(this.hp_base,this.stats.getStat(Stat.CON)),this.stats,this.equipment,this.team,this.xp);
     }
 }
