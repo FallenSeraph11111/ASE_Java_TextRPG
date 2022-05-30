@@ -9,8 +9,8 @@ import java.util.Map;
 
 public class Inventory {
 	ArrayList<Item> items;
-	Map<String,Integer> amount;
-    //maybe using an arraylsit isn't a good idea...but the possibility to increase inventory size could be usefull...have to decide optimal data type
+	Map<String, Integer> amount;
+	//maybe using an arraylsit isn't a good idea...but the possibility to increase inventory size could be usefull...have to decide optimal data type
 
 
 	public Inventory() {
@@ -19,48 +19,34 @@ public class Inventory {
 	}
 
 	public Inventory(List<Item> items, Map<String, Integer> amount) {
-		this.items=new ArrayList<>(items);
+		this.items = new ArrayList<>(items);
 		this.amount = amount;
 	}
-	public void addItem(Item item){
-		if (amount.containsKey(item.name)){
-			int itemAmount=amount.get(item.name);
-			if(item.stacksize <= itemAmount+1) return;
-			amount.put(item.name,itemAmount+1);
-			return;
-		}
-		items.add(item);
-		amount.put(item.name,1);
-	}
-	public void addItem(Item item,int inAmount){
-		if (amount.containsKey(item.name)){
-			int itemAmount=amount.get(item.name);
-			if(item.stacksize <= itemAmount+inAmount) return;
-			amount.put(item.name,itemAmount+inAmount);
-			return;
-		}
-		items.add(item);
-		amount.put(item.name,1);
+
+	public void addItem(Item item) {
+		addItem(item, 1);
 	}
 
-	public int removeItem(Item item){
-		if (amount.containsKey(item.name)){
-			int itemAmount=amount.get(item.name);
-			if (itemAmount > 1){
-				amount.put(item.name,itemAmount-1);
-				return 1;
-			}
-			amount.remove(item.name);
-			items.remove(item);
-			return 1;
+	public void addItem(Item item, int inAmount) {
+		if (amount.containsKey(item.name)) {
+			int itemAmount = amount.get(item.name);
+			if (item.stacksize <= itemAmount + inAmount) return;
+			amount.put(item.name, itemAmount + inAmount);
+			return;
 		}
-		return 0;
+		items.add(item);
+		amount.put(item.name, 1);
 	}
-	public int removeItem(Item item,int outAmount){
-		if (amount.containsKey(item.name)){
-			int itemAmount=amount.get(item.name);
-			if (itemAmount > outAmount){
-				amount.put(item.name,itemAmount-outAmount);
+
+	public int removeItem(Item item) {
+		return removeItem(item, 1);
+	}
+
+	public int removeItem(Item item, int outAmount) {
+		if (amount.containsKey(item.name)) {
+			int itemAmount = amount.get(item.name);
+			if (itemAmount > outAmount) {
+				amount.put(item.name, itemAmount - outAmount);
 				return outAmount;
 			}
 			amount.remove(item.name);
