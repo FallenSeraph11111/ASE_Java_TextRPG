@@ -1,3 +1,11 @@
+
+
+Dieser MPV wurd nicht vollständig erreicht.
+Die funktion des Speicherns, des Levelns, des interagieren mit dem inventar wurden nicht implementiert
+
+
+
+
 Alle () inhalte sind optional und nicht direkt für den mvp notwendig, es wird aber im design der anwendung darauf geachtet das diese im nachhinein noch eingeführt werden können
 
 - Equipment
