@@ -7,7 +7,7 @@ public class InitilizerTest {
 	Initilizer ini;
 	@BeforeEach
 	void setUp(){
-		ini = new Initilizer()
+		//ini = new Initilizer();
 	}
 	@Test
 	@DisplayName("initEnemies received wrong JSON")
