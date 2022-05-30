@@ -1,0 +1,25 @@
+{
+  "actions": [
+    {
+      "name": "Slash",
+      "damageScaling": 1,
+      "damageType": "SLASHING",
+      "aoe": false,
+      "baseDamage": 5,
+      "actionType": "ATTACK"
+    },
+    {
+      "name": "Small Heal",
+      "damageScaling": 2,
+      "damageType": "HOLY",
+      "aoe": false,
+      "baseDamage": 5,
+      "actionType": "HEAL"
+    },
+    {
+      "name": "Defend",
+      "actionType": "DEFEND",
+      "aoe": false
+    }
+  ]
+}

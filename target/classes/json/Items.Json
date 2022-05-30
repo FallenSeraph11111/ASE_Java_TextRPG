@@ -1,0 +1,86 @@
+{
+  "items": [
+    {
+      "type": "EQUIPMENT",
+      "id": 1,
+      "name": "Iron Sword",
+      "value": "2",
+      "actions": [
+        "Slash"
+      ],
+      "equipmentSlot": "WEAPON",
+      "levelRequirement": 1,
+      "baseDamage": 2,
+      "damageScaling": 0,
+      "damageType": "SLASHING",
+      "protection": 0
+    },
+    {
+      "name": "Coin",
+      "type": "VALUABLE",
+      "value": 10,
+      "stackSize": 999
+    },
+    {
+      "type": "EQUIPMENT",
+      "id": 2,
+      "name": "Iron Helmet",
+      "value": "3",
+      "equipmentSlot": "HEAD",
+      "levelRequirement": 1,
+      "protection": 2
+    },
+    {
+      "type": "EQUIPMENT",
+      "id": 3,
+      "name": "Iron Breastplate",
+      "value": "5",
+      "equipmentSlot": "BODY",
+      "levelRequirement": 1,
+      "protection": 5
+    },
+    {
+      "type": "EQUIPMENT",
+      "id": 4,
+      "name": "Iron Boots",
+      "value": "4",
+      "equipmentSlot": "LEG",
+      "levelRequirement": 1,
+      "protection": 3
+    },
+    {
+      "type": "EQUIPMENT",
+      "id": 5,
+      "name": "Iron Ring",
+      "value": "10",
+      "equipmentSlot": "FINGER",
+      "levelRequirement": 1,
+      "protection": 1
+    },
+    {
+      "type": "EQUIPMENT",
+      "id": 6,
+      "name": "Small Round Shield",
+      "value": "5",
+      "equipmentSlot": "SHIELD",
+      "levelRequirement": 1,
+      "protection": 3
+    },
+    {
+      "type": "EQUIPMENT",
+      "id": 7,
+      "name": "Iron Dagger",
+      "value": "2",
+      "actions": [
+        "Slash"
+      ],
+      "equipmentSlot": "WEAPON",
+      "levelRequirement": 1,
+      "baseDamage": 1,
+      "damageScaling": 0,
+      "damageType": "SLASHING",
+      "protection": 0
+    }
+
+  ]
+}

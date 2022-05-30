@@ -1,0 +1,240 @@
+{
+  "encounters": [
+     {
+      "EncounterID": "0",
+      "EncounterType": "PATH"
+    },
+    {
+      "EncounterID": "1",
+      "EncounterType": "CHEST",
+      "loot": "Iron Sword"
+    },
+    {
+      "EncounterType": "ENEMY",
+      "EncounterID": "2",
+      "enemies": [
+        {
+          "id": 1,
+          "name": "Goblin"
+        }
+      ]
+    },
+    {
+      "EncounterID": "3",
+      "EncounterType": "ENEMY",
+      "enemies": [
+        {
+          "id": 1,
+          "name": "Goblin"
+        },
+        {
+          "id": 1,
+          "name": "Goblin"
+        },
+        {
+          "id": 1,
+          "name": "Goblin"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "label": "11F0",
+      "EncounterType": "PATH",
+      "encounterID": "0",
+      "layer": 0,
+      "roomID": "11F0"
+    },
+    {
+      "label": "00F0 Start Raum",
+      "EncounterType": "PATH",
+      "encounterID": "0",
+      "layer": 0,
+      "roomID": "00F0",
+      "text": "You Wake up in a Strange room with a slightly ajar door. Do you want to enter the next Room?"
+    },
+    {
+      "label": "10F0",
+      "EncounterType": "PATH",
+      "encounterID": "0",
+      "layer": 0,
+      "roomID": "10F0"
+    },
+    {
+      "label": "12F0",
+      "EncounterType": "ENEMY",
+      "encounterID": "2",
+      "layer": 0,
+      "roomID": "12F0"
+    },
+    {
+      "label": "20F0",
+      "EncounterType": "PATH",
+      "encounterID": "0",
+      "layer": 0,
+      "roomID": "20F0"
+    },
+    {
+      "label": "21F0",
+      "EncounterType": "ENEMY",
+      "encounterID": "2",
+      "layer": 0,
+      "roomID": "21F0"
+    },
+    {
+      "label": "22F0",
+      "EncounterType": "CHEST",
+      "encounterID": "1",
+      "layer": 0,
+      "roomID": "22F0",
+      "text": "The moment you enter the room you notice a strange Chest. Maybe it contains something helpful."
+    },
+    {
+      "label": "23F0",
+      "EncounterType": "PATH",
+      "encounterID": "0",
+      "layer": 0,
+      "roomID": "23F0"
+    },
+    {
+      "label": "24F0",
+      "EncounterType": "ENEMY",
+      "encounterID": "3",
+      "layer": 0,
+      "roomID": "24F0"
+    },
+    {
+      "label": "14F0",
+      "EncounterType": "PATH",
+      "encounterID": "0",
+      "layer": 0,
+      "roomID": "14F0",
+      "text": "This Room has different feature than the ones you were in before. There is a staircase that leads down into a basement."
+    },
+    {
+      "label": "14F-1",
+      "EncounterType": "PATH",
+      "encounterID": "0",
+      "layer": -1,
+      "roomID": "14F-1"
+    },
+    {
+      "label": "24F1",
+      "EncounterType": "ENEMY",
+      "encounterID": "2",
+      "layer": 1,
+      "roomID": "24F1"
+    },
+    {
+      "label": "34F1",
+      "EncounterType": "PATH",
+      "encounterID": "2",
+      "layer": 1,
+      "roomID": "24F1"
+    },
+    {
+      "label": "44F1",
+      "EncounterType": "BOSS",
+      "encounterID": "3",
+      "layer": 1,
+      "roomID": "13F1",
+      "text": "This Room is different than the rest, the tension in the air is nearly touchable. You prepare yourself to face the final fight. "
+    }
+  ],
+  "edges": [
+    {
+      "1": {
+        "label": "00F0 Start Raum"
+      },
+      "2": {
+        "label": "11F0"
+      }
+    },
+    {
+      "1": {
+        "label": "11F0"
+      },
+      "2": {
+        "label": "10F0"
+      }
+    },
+    {
+      "1": {
+        "label": "11F0"
+      },
+      "2": {
+        "label": "12F0"
+      }
+    },
+    {
+      "1": {
+        "label": "10F0"
+      },
+      "2": {
+        "label": "21F0"
+      }
+    },
+    {
+      "1": {
+        "label": "20F0"
+      },
+      "2": {
+        "label": "21F0"
+      }
+    },
+    {
+      "1": {
+        "label": "22F0"
+      },
+      "2": {
+        "label": "21F0"
+      }
+    },
+    {
+      "1": {
+        "label": "12F0"
+      },
+      "2": {
+        "label": "23F0"
+      }
+    },
+    {
+      "1": {
+        "label": "23F0"
+      },
+      "2": {
+        "label": "24F0"
+      }
+    },
+    {
+      "1": {
+        "label": "24F0"
+      },
+      "2": {
+        "label": "14F0"
+      }
+    },
+    {"1": {
+      "label": "14F0"
+    },"2": {
+      "label": "14F-1"
+    }},
+    {"1": {
+      "label": "24F0"
+    },"2": {
+      "label": "24F1"
+    }},
+    {"1": {
+      "label": "24F1"
+    },"2": {
+      "label": "34F1"
+    }},
+    {"1": {
+      "label": "34F1"
+    },"2": {
+      "label": "44F1"
+    }}
+  ],
+  "startingRoom": "00F0 Start Raum"
+}
